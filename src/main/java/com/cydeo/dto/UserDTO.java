@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
 
     private String firstName;
@@ -19,36 +19,4 @@ public class UserDTO {
     private RoleDTO role;
     private Gender gender;
 
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public RoleDTO getRole() {
-        return role;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
 }

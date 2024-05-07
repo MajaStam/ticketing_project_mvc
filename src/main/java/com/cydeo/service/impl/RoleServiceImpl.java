@@ -3,14 +3,16 @@ package com.cydeo.service.impl;
 import com.cydeo.dto.RoleDTO;
 import com.cydeo.service.RoleService;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Component
-public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
 
+@Service  //like @Component - creates bean
+public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
 
     @Override
     public RoleDTO save(RoleDTO role) {
+
         return super.save(role.getId(),role);
     }
 
@@ -25,7 +27,7 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     }
 
     @Override
-    public void deleteById(Long username) {
-
+    public void deleteById(Long id) {
+        super.deleteById(id);
     }
 }

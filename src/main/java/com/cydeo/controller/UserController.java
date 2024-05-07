@@ -23,26 +23,29 @@ public class UserController {
     }
 
     @GetMapping("/create")
-    public String createUser(@ModelAttribute("user") UserDTO user, Model model){
+    public String createUser(Model model){
 
-       model.addAttribute("user",new UserDTO());
-       model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("user",new UserDTO());
+
+        model.addAttribute("roles",roleService.findAll());
+
         model.addAttribute("users",userService.findAll());
-
-
-
-
 
         return "/user/create";
     }
 
-@PostMapping("/create")
+
+
+
+    @PostMapping("/create")
     public String insertUser(@ModelAttribute("user") UserDTO user){
 
-    userService.save(user);
+        userService.save(user);
 
-    return "redirect:/user/create";
+        return "redirect:/user/create";
+
     }
+
 
 
 

@@ -5,10 +5,13 @@ import com.cydeo.dto.UserDTO;
 import com.cydeo.enums.Gender;
 import com.cydeo.service.RoleService;
 import com.cydeo.service.UserService;
+import com.cydeo.service.impl.RoleServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+
+@Component
 public class DataGenerator implements CommandLineRunner {
 
 
@@ -23,9 +26,8 @@ public class DataGenerator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-
         RoleDTO adminRole = new RoleDTO(1L,"Admin");
-        RoleDTO managerRole = new RoleDTO(2L,"Menager");
+        RoleDTO managerRole = new RoleDTO(2L,"Manager");
         RoleDTO employeeRole = new RoleDTO(3L,"Employee");
 
 
@@ -33,23 +35,22 @@ public class DataGenerator implements CommandLineRunner {
         roleService.save(managerRole);
         roleService.save(employeeRole);
 
-        UserDTO user1 = new UserDTO("John","Kesy",
-                "John@cydeo.com","Abc1",true,"7459689789",managerRole, Gender.MALE);
-        UserDTO user2 = new UserDTO("Maja","Stamenkovic",
-                "Maja@cydeo.com","1231",true,"7459688769",managerRole, Gender.FEMALE);
-        UserDTO user3 = new UserDTO("Martina","Stamenkovic",
-                "Mace@cydeo.com","cccc1",true,"745963452",managerRole, Gender.FEMALE);
-        UserDTO user4 = new UserDTO("Strahinja","Maslovaric",
-                "Strale@cydeo.com","12asc1",true,"7459683432",managerRole, Gender.MALE);
-        UserDTO user5 = new UserDTO("Srdjan","Kesy",
-                "John@cydeo.com","Absss1",true,"7459623532",managerRole, Gender.MALE);
-        UserDTO user6 = new UserDTO("Nikola","Kesicf",
-                "John@cydeo.com","Absdf1",true,"7459523532",managerRole, Gender.MALE);
-        UserDTO user7 = new UserDTO("Ljiljana","Stamenkovic",
-                "John@cydeo.com","Ab5641",true,"7459184532",managerRole, Gender.FEMALE);
-        UserDTO user8 = new UserDTO("Andjela","Taskovic",
-                "John@cydeo.com","A00oi1",true,"7459000532",managerRole, Gender.FEMALE);
-
+        UserDTO user1 = new UserDTO("John", "Kesy",
+                "john@cydeo.com", "Abc1", true, "7459684532", managerRole, Gender.MALE);
+        UserDTO user5 = new UserDTO("Mike", "Smith",
+                "mike@cydeo.com", "Abc2", true, "7459684532", adminRole, Gender.MALE);
+        UserDTO user2 = new UserDTO("Delisa",
+                "Norre", "delisa@cydeo.com", "123", true, "8567412358", managerRole, Gender.FEMALE);
+        UserDTO user3 = new UserDTO("Craig", "Jark",
+                "craig@cydeo.com", "Abc3", true, "7777775566", employeeRole, Gender.MALE);
+        UserDTO user4 = new UserDTO("Shaun",
+                "Hayns", "shaun@cydeo.com", "Abc4", true, "3256987412", managerRole, Gender.MALE);
+        UserDTO user6 = new UserDTO("Elizebeth",
+                "Loren", "elizebeth@cydeo.com", "Abc4", true, "5306987412", employeeRole, Gender.FEMALE);
+        UserDTO user7 = new UserDTO("Maria",
+                "Ada", "maria@cydeo.com", "Abc4", true, "9996987412", employeeRole, Gender.FEMALE);
+        UserDTO user8 = new UserDTO("Bill",
+                "Matt", "bill@cydeo.com", "Abc4", true, "8881239846", employeeRole, Gender.MALE);
 
         userService.save(user1);
         userService.save(user2);
