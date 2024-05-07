@@ -1,5 +1,7 @@
 package com.cydeo.service.impl;
 
+import com.cydeo.dto.ProjectDTO;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +25,15 @@ public abstract class AbstractMapService <T,ID>{
         return map.get(id);
     }
 
+    public abstract void update(ProjectDTO object);
+
     void deleteById(ID id){
         map.remove(id);
+    }
+
+
+    void update(ID id, T object){
+        map.put(id,object);
     }
 
 }
